@@ -31,6 +31,10 @@ from zoo_higher_order_funcs.zookeeper import (
     make_get_animals,
 )
 
+# Notice that we were able to import all of these wrapper functions from the `zookeeper` entrypoint.
+# That's because they were re-exported from the child modules. This is a nice convenience for users,
+# but not necessary.
+
 print("\nFeeding animals with higher order functions. \n\n")
 animal_getter = make_get_animals(is_gorilla_at_doctor=True, num_snake_eggs_hatched=13)
 food_getter = make_get_animal_food(time_of_day="evening")
