@@ -1,4 +1,6 @@
-def get_animals(*, is_gorilla_at_doctor: bool = False, num_snake_eggs_hatched: int = 0):
+def make_get_animals(
+    *, is_gorilla_at_doctor: bool = False, num_snake_eggs_hatched: int = 0
+):
     def _get_animals(
         exhibit: str,
     ):

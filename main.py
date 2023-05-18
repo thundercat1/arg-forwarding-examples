@@ -25,25 +25,25 @@ nested_zookeeper.make_rounds(
 # If there's a problem with the arguments you're passing to get_animals, the stack
 # trace will point here because you're calling it directly.
 
-import zoo_higher_order_funcs.zookeeper as higher_order_zookeeper
-from zoo_higher_order_funcs.exhibits import get_animals
-from zoo_higher_order_funcs.food import get_animal_food
+from zoo_higher_order_funcs.zookeeper import (
+    make_rounds,
+    make_get_animal_food,
+    make_get_animals,
+)
 
 print("\nFeeding animals with higher order functions. \n\n")
-animal_getter = get_animals(is_gorilla_at_doctor=True, num_snake_eggs_hatched=13)
-food_getter = get_animal_food(time_of_day="evening")
-higher_order_zookeeper.make_rounds(["aquarium", "jungle"], animal_getter, food_getter)
+animal_getter = make_get_animals(is_gorilla_at_doctor=True, num_snake_eggs_hatched=13)
+food_getter = make_get_animal_food(time_of_day="evening")
+make_rounds(["aquarium", "jungle"], animal_getter, food_getter)
 
 ###############################################################################
 
 # Here, again, extra imports, but the animal and food configuration pararmeters are
 # set directly instead of being forwarded through the zookeeper function.
 
-import zoo_objects.zookeeper as objects_zookeeper
-from zoo_objects.exhibits import AnimalGetter
-from zoo_objects.food import FoodGetter
+from zoo_objects.zookeeper import make_rounds, AnimalGetter, FoodGetter
 
 print("\nFeeding animals with objects. \n\n")
 animal_getter = AnimalGetter(is_gorilla_at_doctor=True, num_snake_eggs_hatched=2)
 food_getter = FoodGetter(time_of_day="evening")
-objects_zookeeper.make_rounds(["aquarium", "jungle"], animal_getter, food_getter)
+make_rounds(["aquarium", "jungle"], animal_getter, food_getter)

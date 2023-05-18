@@ -1,4 +1,4 @@
-def get_animal_food(time_of_day="morning"):
+def make_get_animal_food(time_of_day="morning"):
     def _get_animal_food(animal):
         # time_of_day is morning or evening. Our animals like different things
         # for breakfast and dinner
